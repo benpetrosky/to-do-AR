@@ -26,4 +26,6 @@ class Task
     DB.exec("INSERT INTO tasks (description, list_id) VALUES ('#{@description}', #{@list_id});")
   end
 
+  
+
 end
