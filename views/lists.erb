@@ -1,0 +1,10 @@
+<form action="/lists" method="post">
+  <label for="name">Enter the name of the list item:</label>
+  <input name="name" type="text">
+
+  <button type="submit">Add list</button>
+</form>
+
+<% @lists.each() do |list| %>
+    <li><%= list.name %> <a href="/lists/<%= list.id() %>/edit">Update this list's tasks</a></li>
+  <% end %>

@@ -1,0 +1,13 @@
+<h1><%= @list.name %></h1>
+
+<form action="/tasks/<%= @list.id %>" method="post">
+
+  <label for="description">add task to list:</label>
+  <input name="description" type="text">
+
+  <button type="submit">Update</button>
+</form>
+
+<% @list.tasks().each() do |tasks| %>
+    <li><%= tasks.description %> <a href="/tasks/<%= tasks.id() %>/edit">Update this list's tasks</a></li>
+  <% end %>
