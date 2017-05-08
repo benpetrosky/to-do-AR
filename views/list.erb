@@ -9,5 +9,5 @@
 </form>
 
 <% @list.tasks().each() do |tasks| %>
-    <li><%= tasks.description %> <a href="/tasks/<%= tasks.id() %>/edit">Update this list's tasks</a></li>
+    <li><%= tasks.description %> <a href="/tasks/<%= tasks.id() %>/edit">Update this specific task</a></li>
   <% end %>

@@ -9,7 +9,6 @@ require("pg")
 
 
 get("/") do
-  @tasks = Task.all()
   erb(:index)
 end
 
