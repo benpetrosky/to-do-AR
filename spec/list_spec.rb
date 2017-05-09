@@ -9,4 +9,12 @@ describe(List) do
      expect(test_list.tasks()).to(eq([test_task1, test_task2]))
     end
   end
-end
+    it("valicates presence of description")do
+      list = List.new({:name => ""})
+      expect(list.save()).to(eq(false))
+    end
+    it("ensures length of description is at least 50 characters")do
+      list= List.new({:name => "a".*(51)})
+      expect(list.save()).to(eq(false))
+    end
+  end

@@ -19,9 +19,12 @@ end
 
 post('/lists') do
   name = params.fetch('name')
-  list = List.new({:name => name})
-  list.save()
+  @list = List.new({:name => name})
+  if @list.save()
   erb(:success)
+else
+  erb(:errors)
+end
 end
 
 get('/lists/:id/edit') do
@@ -36,11 +39,13 @@ post('/tasks/:id') do
   id = params.fetch('id')
   @list = List.find(id)
   description = params.fetch("description")
-  #  task = Task.new({:description => description})
   @list.tasks().new({:description => description})
-   @list.save()
-   @tasks = Task.all()
+   if @list.save()
+     @tasks = Task.all()
   erb(:success)
+else
+  erb(:errors)
+  end
 end
 
 #ABOVE WAS A MAJOR HEADACH
