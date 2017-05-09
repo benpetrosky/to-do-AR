@@ -13,6 +13,11 @@ describe(List) do
       list = List.new({:name => ""})
       expect(list.save()).to(eq(false))
     end
+    it('converts the name to lowercase') do
+      list = List.create({:name=> "FINAGLE THE ZEBRA"})
+      expect(list.name()).to(eq("finagle the zebra"))
+    end
+
     it("ensures length of description is at least 50 characters")do
       list= List.new({:name => "a".*(51)})
       expect(list.save()).to(eq(false))
